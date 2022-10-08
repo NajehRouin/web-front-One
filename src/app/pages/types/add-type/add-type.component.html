@@ -1,0 +1,24 @@
+<mat-card class="m-2 p-3">
+    <mat-title>Ajouter Type</mat-title>
+    <form [formGroup]="formType">
+    <div class="row">
+      <div class="col-md-10"> <input type="text" class="form-control" placeholder="Nom" required formControlName="nom"> </div>
+      
+    </div>
+    <div class="row">
+        <mat-form-field appearance="fill">
+            <mat-label>Choose an option</mat-label>
+            <mat-select [formControl]="selected"  >
+              <mat-option *ngFor="let domaine of domaines" value="{{domaine._id}}">{{domaine.nom}}</mat-option> 
+            </mat-select>
+          </mat-form-field>
+    </div>
+    <div class="row">
+        <span class="col-md-10" *ngFor="let item of items; let index=index"> <p>{{item.nom}}<mat-icon color="accent" (click)="deleteDomaine(index)">highlight_off</mat-icon></p> </span>
+    </div>
+    </form>
+    <mat-card-actions class="d-flex align-items-center align-content-around ">
+        <button mat-raised-button (click)="close()">annuler</button>
+        <button mat-raised-button (click)="addType()">Ajouter</button>
+    </mat-card-actions>
+</mat-card>

@@ -1,0 +1,28 @@
+a{
+    width: 100%;
+    background-color: rgb(255, 223, 175);
+ &:hover{
+    color: white;
+    background-color: rgb(253, 179, 83);
+}
+}
+.user{
+    color: darkslategrey;
+}
+.b-0{
+    font-size: xx-large;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 200;
+    font-style: italic;
+    text-shadow: 2px 3px 2px rgb(105, 104, 104);
+    margin: 2%;
+    padding: 2%;
+
+}
+.avatar {
+    vertical-align: middle;
+    
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+  }

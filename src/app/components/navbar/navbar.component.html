@@ -1,0 +1,6 @@
+  <button mat-mini-fab  class="user-btn" [matMenuTriggerFor]="beforeMenu"><mat-icon>account_circle</mat-icon></button>
+  <mat-menu #beforeMenu="matMenu" xPosition="before">
+    <a href="/dashboard/profile"><button mat-menu-item> Profile</button></a>
+    <button mat-menu-item>Sign-Out</button>
+  </mat-menu>
+

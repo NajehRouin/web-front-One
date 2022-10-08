@@ -1,0 +1,122 @@
+<div class="container">
+  <!-- <div class="modal-body">
+    <div id="smartwizard">
+      <ul>
+        <li><a href="#step-1">Step 1<br /><small>Account Info</small></a></li>
+        <li><a href="#step-2">Step 2<br /><small>Personal Info</small></a></li>
+        <li><a href="#step-3">Step 3<br /><small>Payment Info</small></a></li>
+        <li><a href="#step-4">Step 4<br /><small>Confirm details</small></a></li>
+      </ul> -->
+
+  <!-- <div class="mt-4"> -->
+  <mat-stepper #stepper>
+    <mat-step [stepControl]="userForm">
+      <form [formGroup]="userForm">
+        <ng-template matStepLabel>Ajouter member</ng-template>
+        <mat-card class="m-2 p-3">
+          <div class="row">
+            <div class="col-md-10"> <input type="text" class="form-control" placeholder="Nom" formControlName="nom"
+                required> </div>
+
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-10"> <input type="text" class="form-control" placeholder="Email" formControlName="email"
+                required> </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-6"> <input type="text" class="form-control" placeholder="Password"
+                formControlName="password" required> </div>
+            <div class="col-md-6"> <input type="text" class="form-control" placeholder="Repeat password" required>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-6"> <input type="text" class="form-control" placeholder="numéro téléphone"
+                formControlName="numeroTel" required>
+            </div>
+            <div class="col-md-6"> <input type="text" class="form-control" placeholder="addresse"
+                formControlName="adresse" required>
+            </div>
+          </div>
+        </mat-card>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="userForm">
+      <form [formGroup]="userForm">
+        <ng-template matStepLabel>Détails</ng-template>
+
+        <mat-card>
+          <div class="row justify-content-center">
+            <input type="file" (change)="getImageProfile($event)" id="file-5" class="inputfile inputfile-4" />
+            <label for="file-5" class="justify-content-center">
+              <figure><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                  <path
+                    d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" />
+                </svg></figure>
+              <div>Choose a photo</div>
+            </label>
+
+          </div>
+
+          <div class="row mt-3">
+            <div class="col-md-6">
+              <mat-form-field appearance="fill">
+                <mat-label>Choisir un Type</mat-label>
+                <mat-select [formControl]="selectedType">
+                  <mat-option *ngFor="let type of types" value="{{type._id}}">{{type.nom}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field appearance="fill">
+                <mat-label>Choisir un domaine</mat-label>
+                <mat-select [formControl]="selectedDomaine">
+                  <mat-option *ngFor="let domaine of domaines" value="{{domaine._id}}">{{domaine.nom}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-card>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+
+    <mat-step [stepControl]="userForm">
+      <form [formGroup]="userForm">
+        <ng-template matStepLabel>Payement</ng-template>
+        <mat-card>
+          <div class="row mt-3">
+            <mat-radio-group formControlName="methode">
+              <mat-radio-button class="m-1" value="cheque">Par chèque </mat-radio-button>
+              <mat-radio-button class="m-1" value="espese">Par espèse</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div class="row mt-3">
+            <mat-form-field class="example-form-field" appearance="fill">
+              <mat-label>Periode</mat-label>
+              <mat-date-range-input  [rangePicker]="campaignOnePicker">
+                <input matStartDate placeholder="Start date" formControlName="start">
+                <input matEndDate placeholder="End date" formControlName="end">
+              </mat-date-range-input>
+              <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
+              <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
+            </mat-form-field>
+          </div>
+         
+        </mat-card>
+        <div>
+          <button mat-button (click)="close()">Annuler</button>
+          <button mat-button (click)="addUser()">Confirmer</button>
+        </div>
+      </form>
+    </mat-step>
+  </mat-stepper>
+</div>

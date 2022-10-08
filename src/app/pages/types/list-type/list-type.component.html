@@ -1,0 +1,27 @@
+<div class="container pt-3">
+  <div class="d-flex flex-row align-items-end justify-content-end ">
+    <button mat-flat-button class="position-fixed " (click)="openDialog({},'new',null)"
+    >Ajouter Type</button>
+  </div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="_id">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element._id}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="nom">
+      <th mat-header-cell *matHeaderCellDef> nom </th>
+      <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> actions </th>
+      <td mat-cell *matCellDef="let element;let index=index"> <button mat-mini-fab color="primary"class="m-1" (click)="openDialog(element,'update',index)" ><mat-icon >edit</mat-icon></button> <button mat-mini-fab class="m-1" (click)="delete(element._id,index)"><mat-icon>delete</mat-icon></button></td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>

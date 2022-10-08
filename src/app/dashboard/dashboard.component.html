@@ -1,0 +1,23 @@
+<mat-drawer-container>
+    <mat-drawer mode="side" opened >    
+     <app-sidebar>
+    
+     </app-sidebar>
+    </mat-drawer>
+    
+    <mat-drawer-content>  
+        
+        <div class="container-fluid">
+            <div class="container clearfix">
+               <div class="float-end mb-3 mt-2"><app-navbar></app-navbar> </div> 
+            </div>  
+            <div class="container">
+                <router-outlet></router-outlet>
+            </div>    
+        
+        </div>
+    
+    </mat-drawer-content>
+  
+  </mat-drawer-container>
+  

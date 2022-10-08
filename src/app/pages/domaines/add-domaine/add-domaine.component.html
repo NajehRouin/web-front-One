@@ -1,0 +1,12 @@
+<mat-card class="m-2 p-3">
+    <mat-title>Ajouter Domaine</mat-title>
+    <form [formGroup]="formDomaine">
+    <div class="row">
+      <div class="col-md-10"> <input type="text" class="form-control" placeholder="Nom" required formControlName="nom"> </div>
+    </div>
+    </form>
+    <mat-card-actions class="d-flex align-items-center align-content-around ">
+        <button mat-raised-button (click)="close()">annuler</button>
+        <button mat-raised-button (click)="addDomaine()">Ajouter</button>
+    </mat-card-actions>
+</mat-card>

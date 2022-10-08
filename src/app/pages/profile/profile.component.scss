@@ -1,0 +1,44 @@
+body {
+    background: rgb(99, 39, 120)
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: bisque;
+}
+
+.profile-button {
+    background-color: bisque;
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: rgb(248, 184, 106)
+}
+
+.profile-button:focus {
+    background: rgb(248, 184, 106);
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: rgb(248, 184, 106);
+    box-shadow: none
+}
+
+.back:hover {
+    color: bisque;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px
+}
+
+.add-experience:hover {
+    background: bisque;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px bisque;
+}
